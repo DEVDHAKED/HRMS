@@ -31,5 +31,30 @@ The goal is to provide a simple, internal admin console with a clean, profession
 
 ### 1. Clone the repo
 
-git clone https://github.com/<your-username>/HRMS.git
+git clone https://github.com/DEVDHAKED/HRMS.git
+
 cd HRMS
+
+
+### 2. Backend (FastAPI + SQLite)
+  1.Create and activate virtual environment (Windows PowerShell):
+      python -m venv .venv   .venv\Scripts\Activate
+  2. Install dependencies:
+      pip install -r requirements.txt
+  3. Start the API server:
+      uvicorn backend.main:app --reload --port 8000
+  4. Verify:  
+      - Health check: http://127.0.0.1:8000/health → {"status":"ok"}
+      - Interactive docs: http://127.0.0.1:8000/docs
+> The first run will create a local SQLite database file hrms.db in the project root.
+### 3. Frontend (React + static files)
+    1. Make sure API_BASE at the top of frontend/main.jsx points to your local API when running locally:
+        const API_BASE = "http://localhost:8000";
+    2. Start a simple static server (from the frontend directory):
+       cd frontend   python -m http.server 5173
+    3. Open the app in your browser:
+       http://localhost:5173
+-- You should see the HRMS Lite UI. You can now:
+-- Add employees in the Employee Directory panel.
+-- Mark attendance and view history in the Daily Attendance panel.
+-- See summary counts and filter attendance by date.
