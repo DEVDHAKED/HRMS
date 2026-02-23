@@ -17,16 +17,17 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="HRMS Lite API", version="1.0.0")
 
-origins = [
-    "http://localhost:5173",
-    "http://127.0.0.1:5173",
-    "https://hrms-lite-api-dev-dhaked.netlify.app/",
-]
+# origins = [
+#     "http://localhost:5173",
+#     "http://127.0.0.1:5173",
+#     "https://hrms-lite-api-dev-dhaked.netlify.app/",
+# ]
+origins = ["*"]
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
-    allow_credentials=True,
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
