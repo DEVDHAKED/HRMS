@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:8000";
+const API_BASE = "https://hrms-lite-api-2zf2.onrender.com";
 
 async function apiRequest(path, options = {}) {
   const resp = await fetch(`${API_BASE}${path}`, {
